@@ -1,6 +1,7 @@
 var got = require('got');
 var cheerio = require('cheerio');
 var Q = require('q');
+var magnet = require('magnet-uri');
 
 var base = "http://1337x.to";
 
@@ -78,8 +79,9 @@ module.exports.info = function getTorrentData(torrent) {
   return got(torrent.link)
     .then(function(data) {
       var $ = cheerio.load(data.body);
-      torrent['title'] = $('.domain-box .top-row > strong').text();
       torrent['magnetLink'] = $('.magnet').attr('href');
+      /* Use name parsed from Magnet URI since 1337x.to likes to shorten long titles */
+      torrent['title'] = magnet.decode(torrent['magnetLink']).dn;
       torrent['hash'] = $('.infohash-box').text().split(':')[1].trim();
       torrent['size'] = strToBytes($('.category-detail .list li').eq(3).text().split('\n')[2].trim());
       torrent['seeds'] = parseInt($('.category-detail .list:nth-child(2) li').eq(3).text().split('\n')[2].trim());
