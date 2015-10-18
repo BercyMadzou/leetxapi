@@ -1,6 +1,6 @@
 {
   "name": "leetxapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple html parsing api for 1337x.to",
   "main": "1337x.js",
   "scripts": {},
