@@ -1,0 +1,31 @@
+{
+  "name": "leetxapi",
+  "version": "1.0.0",
+  "description": "A simple html parsing api for 1337x.to",
+  "main": "1337x.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatrickE94/leetxapi.git"
+  },
+  "keywords": [
+    "1337x",
+    "torrent",
+    "api"
+  ],
+  "author": "Patrick Engström",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PatrickE94/leetxapi/issues"
+  },
+  "homepage": "https://github.com/PatrickE94/leetxapi#readme",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "got": "^5.0.0",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
+  }
+}
