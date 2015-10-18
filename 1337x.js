@@ -78,6 +78,7 @@ module.exports.info = function getTorrentData(torrent) {
   return got(torrent.link)
     .then(function(data) {
       var $ = cheerio.load(data.body);
+      torrent['title'] = $('.domain-box .top-row > strong').text();
       torrent['magnetLink'] = $('.magnet').attr('href');
       torrent['hash'] = $('.infohash-box').text().split(':')[1].trim();
       torrent['size'] = strToBytes($('.category-detail .list li').eq(3).text().split('\n')[2].trim());
