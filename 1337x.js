@@ -92,7 +92,7 @@ module.exports.info = function getTorrentData(torrent) {
       $('.file-container li').each(function(i, elem) {
         var sizestr = $(elem).text().match(/\([^\)]+\)/)[0].replace('(','').replace(')','');
         torrent['files'].push({
-          title: $(elem).text(),
+          title: $(elem).text().replace(' (' + sizestr + ')',''),
           size: strToBytes(sizestr)
         });
       });
